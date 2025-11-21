@@ -26,7 +26,7 @@ class UserServiceTest {
 
   @Test
   void testGetAllUsers() {
-    
+
     User john = new User("John Doe", "john@test.com");
     User jane = new User("Jane Doe", "jane@test.com");
 
@@ -47,7 +47,9 @@ class UserServiceTest {
 
     when(userRepository.findById((long) 1)).thenReturn(Optional.of(user));
 
+    
     User result = userService.getUserById((long)1);
+
     assertThat(result.getEmail()).isEqualTo(user.getEmail());
     assertThat(result.getName()).isEqualTo(user.getName());
   }
